@@ -1,0 +1,6 @@
+tap-snapshots
+node_modules
+modules
+test
+dist
+tmp
