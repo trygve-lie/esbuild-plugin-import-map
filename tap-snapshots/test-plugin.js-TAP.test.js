@@ -7,7 +7,7 @@
 'use strict'
 exports[`test/plugin.js TAP plugin() - array of import map maps - should replace import statements with CDN URLs > array of maps 1`] = `
 // modules/simple/main.js
-import {firstElement} from "https://cdn.pika.dev/something/v666";
+import {firstElement} from "https://cdn.eik.dev/something/v666";
 
 // modules/simple/utils/dom.js
 function replaceElement(target, element) {
@@ -16,7 +16,7 @@ function replaceElement(target, element) {
 }
 
 // modules/simple/app/views.js
-import {html, css} from "https://cdn.pika.dev/lit-element/v2";
+import {html, css} from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -73,7 +73,7 @@ start();
 
 exports[`test/plugin.js TAP plugin() - basic module - should replace lit-element with CDN URL > basic example 1`] = `
 // modules/basic/main.js
-import {html} from "https://cdn.pika.dev/lit-element/v2";
+import {html} from "https://cdn.eik.dev/lit-element/v2";
 const render = (world) => {
   return html\`<p>Hello \${world}!</p>\`;
 };
@@ -149,7 +149,7 @@ start();
 
 exports[`test/plugin.js TAP plugin() - import map maps non bare imports - should replace import statement with CDN URL > non bare imports 1`] = `
 // modules/simple/main.js
-import {firstElement} from "https://cdn.pika.dev/something/v666";
+import {firstElement} from "https://cdn.eik.dev/something/v666";
 
 // modules/simple/utils/dom.js
 function replaceElement(target, element) {
@@ -158,7 +158,7 @@ function replaceElement(target, element) {
 }
 
 // modules/simple/app/views.js
-import {html, css} from "https://cdn.pika.dev/lit-element/v2";
+import {html, css} from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -224,7 +224,7 @@ function firstElement(element) {
 }
 
 // modules/simple/app/views.js
-import {html, css} from "https://cdn.pika.dev/lit-element/v2";
+import {html, css} from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -290,7 +290,7 @@ function firstElement(element) {
 }
 
 // modules/simple/app/views.js
-import {html, css} from "https://cdn.pika.dev/lit-element/v2";
+import {html, css} from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
