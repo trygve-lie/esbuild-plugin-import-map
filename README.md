@@ -1,6 +1,6 @@
 # esbuild-plugin-import-map
 
-ESBuild plugin to apply [import map](https://github.com/WICG/import-maps#multiple-import-map-support) mapping to ECMAScript modules (ESM) ahead of time.
+A [ESBuild](https://esbuild.github.io/) plugin to apply [import map](https://github.com/WICG/import-maps#multiple-import-map-support) mapping to ECMAScript modules (ESM) ahead of time.
 
 ## Installation
 
