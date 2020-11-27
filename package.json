@@ -1,14 +1,14 @@
 {
   "name": "esbuild-plugin-import-map",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "ESbuild plugin to apply import map mappings to ESM a head of time.",
   "main": "lib/plugin.js",
   "type": "module",
   "scripts": {
     "test": "tap --no-esm test/*.js --no-coverage",
     "test:snapshot": "TAP_SNAPSHOT=1 tap --no-esm test/*.js --no-coverage",
-    "lint": "eslint . --ext=js",
-    "lint:fix": "eslint . --fix --ext=js"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
