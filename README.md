@@ -63,31 +63,43 @@ import * as lit from 'https://cdn.eik.dev/npm/lit-html/v1/lit-html.js'
 
 This module has the following API:
 
-### .load(map)
+### .load([map])
 
-Loads a single or an array of import maps to be applied during build.
+The `load()` methods can take a absolute path to a import map or an import map as an object directly. Values can be passed on as a single value or an Array of multiple values.
 
-One import map:
+An absolute path to a import map file:
 
 ```js
 import * as importMap from "esbuild-plugin-import-map";
 
-importMap.load({
-    imports: {
-        'lit-element': 'https://cdn.eik.dev/lit-element/v2'
-    }
-});
+importMap.load('source/import-map.json');
 ```
 
-Array of import maps:
+Absolute paths to multiple import map files:
 
 ```js
 import * as importMap from "esbuild-plugin-import-map";
 
 importMap.load([
-    { ... },
-    { ... },
-    { ... },
+    'source/import-map-a.json',
+    'source/import-map-b.json',
+    'source/import-map-c.json',
+]);
+```
+
+Mix of absolute paths to import map files and import maps provided as an object:
+
+```js
+import * as importMap from "esbuild-plugin-import-map";
+
+importMap.load([
+    'source/import-map-a.json',
+    {
+    "imports": {
+        "lit-html": "https://cdn.eik.dev/npm/lit-html/v1/lit-html.js",
+    }
+    },
+    'source/import-map-b.json',
 ]);
 ```
 
@@ -99,6 +111,8 @@ Returns the plugin which will apply the loaded import maps during build. The ret
 
 ```js
 import * as importMap from "esbuild-plugin-import-map";
+
+importMap.load('source/import-map.json');
 
 esbuild.build({
     entryPoints: ['source/main.js'],

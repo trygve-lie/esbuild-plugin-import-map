@@ -15,7 +15,7 @@
     "url": "git+https://github.com/trygve-lie/esbuild-plugin-import-map.git"
   },
   "keywords": [
-    "Rollup",
+    "ESBuild",
     "Import",
     "Map",
     "ESM",
