@@ -36,7 +36,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -50,10 +50,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -61,9 +62,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -74,7 +75,7 @@ start();
 exports[`test/plugin.js TAP plugin() - basic module - should replace lit-element with CDN URL > basic example 1`] = `
 // fixtures/modules/basic/main.js
 import {html} from "https://cdn.eik.dev/lit-element/v2";
-const render = (world) => {
+var render = (world) => {
   return html\`<p>Hello \${world}!</p>\`;
 };
 render();
@@ -112,7 +113,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -126,10 +127,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -137,9 +139,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -178,7 +180,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -192,10 +194,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -203,9 +206,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -244,7 +247,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -258,10 +261,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -269,9 +273,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -310,7 +314,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -324,10 +328,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -335,9 +340,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -376,7 +381,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -390,10 +395,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -401,9 +407,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
@@ -442,7 +448,7 @@ function data() {
 }
 
 // fixtures/modules/simple/app/app.js
-class App {
+var App = class {
   constructor(root) {
     this.root = root;
   }
@@ -456,10 +462,11 @@ class App {
       this.render();
     }, 1e3);
   }
-}
+};
+var app_default = App;
 
 // fixtures/modules/simple/main.js
-const ready = () => {
+var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById("app");
@@ -467,9 +474,9 @@ const ready = () => {
     });
   });
 };
-const start = async () => {
+var start = async () => {
   const el = await ready();
-  const app2 = new App(el);
+  const app2 = new app_default(el);
   app2.render();
   app2.update();
 };
