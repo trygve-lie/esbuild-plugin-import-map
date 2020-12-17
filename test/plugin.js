@@ -38,7 +38,7 @@ tap.test('plugin() - basic module - should replace lit-element with CDN URL', as
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -64,7 +64,7 @@ tap.test('plugin() - simple module - should replace lit-element with CDN URL', a
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -91,7 +91,7 @@ tap.test('plugin() - import map maps non bare imports - should replace import st
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -117,7 +117,7 @@ tap.test('plugin() - import map maps address to a relative path - should replace
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -145,7 +145,7 @@ tap.test('plugin() - import specifier is a interior package path - should replac
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -173,7 +173,7 @@ tap.test('plugin() - import map maps address to a bare importer - should throw',
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     }));
@@ -200,7 +200,7 @@ tap.test('plugin() - array of import map maps - should replace import statements
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -222,7 +222,7 @@ tap.test('plugin() - input is a filepath to a map file - should load map and rep
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
@@ -251,7 +251,7 @@ tap.test('plugin() - input is a filepath to a map file and an inline map - shoul
         format: 'esm',
         minify: false,
         sourcemap: false,
-        target: ['chrome58', 'firefox57', 'safari11', 'edge16'],
+        target: ['esnext'],
         plugins: [plugin.plugin()],
         write: false,
     });
