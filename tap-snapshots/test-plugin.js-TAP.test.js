@@ -92,8 +92,11 @@ function firstElement(element) {
   return element.firstElementChild;
 }
 
+// fixtures/modules/simple/lit-element/v2/lit-element.js
+var html = () => {
+};
+
 // fixtures/modules/simple/app/views.js
-import {html, css} from "./lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -131,6 +134,73 @@ var App = class {
 var app_default = App;
 
 // fixtures/modules/simple/main.js
+var ready = () => {
+  return new Promise((resolve) => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const el = document.getElementById("app");
+      resolve(firstElement(el));
+    });
+  });
+};
+var start = async () => {
+  const el = await ready();
+  const app2 = new app_default(el);
+  app2.render();
+  app2.update();
+};
+start();
+
+`
+
+exports[`test/plugin.js TAP plugin() - import map maps local prefixed imports > local prefixed imports 1`] = `
+// fixtures/modules/simple/utils/dom.js
+function replaceElement(target, element) {
+  target.replaceWith(element);
+  return element;
+}
+function firstElement(element) {
+  return element.firstElementChild;
+}
+
+// fixtures/modules/simple/app/views.js
+import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+function view(items) {
+  return html\`<p>Hello \${items[0]}!</p>\`;
+}
+
+// fixtures/modules/simple/data/data.js
+function random(min, max) {
+  return Math.floor(min + Math.random() * (max + 1 - min));
+}
+function data() {
+  return [
+    random(0, 20),
+    random(20, 40),
+    random(40, 60),
+    random(60, 80),
+    random(80, 100)
+  ];
+}
+
+// fixtures/modules/simple/app/app.js
+var App = class {
+  constructor(root) {
+    this.root = root;
+  }
+  render() {
+    const items = data();
+    const el = view(items);
+    this.root = replaceElement(this.root, el);
+  }
+  update() {
+    setInterval(() => {
+      this.render();
+    }, 1e3);
+  }
+};
+var app_default = App;
+
+// fixtures/modules/simple/prefixed-main.js
 var ready = () => {
   return new Promise((resolve) => {
     document.addEventListener("DOMContentLoaded", () => {
@@ -209,6 +279,28 @@ var ready = () => {
 var start = async () => {
   const el = await ready();
   const app2 = new app_default(el);
+  app2.render();
+  app2.update();
+};
+start();
+
+`
+
+exports[`test/plugin.js TAP plugin() - import map maps remote prefixed imports > remote prefixed imports 1`] = `
+// fixtures/modules/simple/prefixed-main.js
+import {firstElement} from "https://cdn.eik.dev/utils-library/v0/dom.js";
+import App from "https://cdn.eik.dev/app/v0/app.js";
+var ready = () => {
+  return new Promise((resolve) => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const el = document.getElementById("app");
+      resolve(firstElement(el));
+    });
+  });
+};
+var start = async () => {
+  const el = await ready();
+  const app2 = new App(el);
   app2.render();
   app2.update();
 };
