@@ -9,6 +9,7 @@ const simple = `${__dirname}/../fixtures/modules/simple/main.js`;
 const basic = `${__dirname}/../fixtures/modules/basic/main.js`;
 const map = `${__dirname}/../fixtures/simple.map.json`;
 const err = `${__dirname}/../fixtures/faulty.map.json`;
+const prefixed = `${__dirname}/../fixtures/modules/simple/prefixed-main.js`;
 
 
 /*
@@ -105,11 +106,14 @@ tap.test('plugin() - import map maps non bare imports - should replace import st
 });
 
 tap.test('plugin() - import map maps address to a relative path - should replace import statement with relative path', async (t) => {
-    await plugin.load({
-        imports: {
-            'lit-element': './lit-element/v2',
-        }
-    });
+    await plugin.load(
+        {
+            imports: {
+                'lit-element': './lit-element/v2/lit-element.js',
+            },
+        },
+        `${__dirname}/../fixtures/modules/simple`, // required to know where to resolve relative entries from
+    );
 
     const result = await esbuild.build({
         entryPoints: [simple],
@@ -166,7 +170,7 @@ tap.test('plugin() - import map maps address to a bare importer - should throw',
             'lit-html': 'https://cdn.eik.dev/lit-html/v1',
         }
     });
-    
+
     t.rejects(esbuild.build({
         entryPoints: [simple],
         bundle: true,
@@ -271,5 +275,64 @@ tap.test('plugin() - input is a filepath to a non existing map file - should thr
 
 tap.test('plugin() - input is a filepath to a faulty map file - should throw', async (t) => {
     t.rejects(plugin.load(err), /Unexpected end of JSON input/);
+    t.end();
+});
+
+tap.test('plugin() - import map maps local prefixed imports', async (t) => {
+    await plugin.load(
+        {
+            imports: {
+                'lit-element': 'https://cdn.eik.dev/lit-element/v2',
+                'utils-prefix/': './utils/',
+                'app-prefix/': './app/'
+            },
+        },
+        `${__dirname}/../fixtures/modules/simple`, // required to know where to resolve relative entries from
+    );
+
+    const result = await esbuild.build({
+        entryPoints: [prefixed],
+        bundle: true,
+        format: 'esm',
+        minify: false,
+        sourcemap: false,
+        target: ['esnext'],
+        plugins: [plugin.plugin()],
+        write: false,
+    });
+
+    const code = bufferToString(result.outputFiles);
+
+    t.matchSnapshot(clean(code), 'local prefixed imports');
+
+    plugin.clear();
+    t.end();
+});
+
+tap.test('plugin() - import map maps remote prefixed imports', async (t) => {
+    await plugin.load({
+        imports: {
+            'lit-element': 'https://cdn.eik.dev/lit-element/v2',
+            'utils-prefix/': 'https://cdn.eik.dev/utils-library/v0/',
+            'app-prefix/': 'https://cdn.eik.dev/app/v0/'
+        }
+    });
+
+    const result = await esbuild.build({
+        entryPoints: [prefixed],
+        bundle: true,
+        format: 'esm',
+        minify: false,
+        sourcemap: false,
+        target: ['esnext'],
+        plugins: [plugin.plugin()],
+        write: false,
+    });
+
+    const code = bufferToString(result.outputFiles);
+
+    t.matchSnapshot(clean(code), 'remote prefixed imports');
+
+    plugin.clear();
     t.end();
 });
