@@ -5,8 +5,8 @@
   "main": "lib/plugin.js",
   "type": "module",
   "scripts": {
-    "test": "tap --no-esm test/*.js --no-coverage",
-    "test:snapshot": "TAP_SNAPSHOT=1 tap --no-esm test/*.js --no-coverage",
+    "test": "tap test/*.js --no-coverage",
+    "test:snapshot": "TAP_SNAPSHOT=1 tap test/*.js --no-coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
