@@ -7,7 +7,7 @@
 'use strict'
 exports[`test/plugin.js TAP plugin() - array of import map maps - should replace import statements with CDN URLs > array of maps 1`] = `
 // fixtures/modules/simple/main.js
-import {firstElement} from "https://cdn.eik.dev/something/v666";
+import { firstElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/utils/dom.js
 function replaceElement(target, element) {
@@ -16,7 +16,7 @@ function replaceElement(target, element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -51,7 +51,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -64,9 +63,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -74,7 +73,7 @@ start();
 
 exports[`test/plugin.js TAP plugin() - basic module - should replace lit-element with CDN URL > basic example 1`] = `
 // fixtures/modules/basic/main.js
-import {html} from "https://cdn.eik.dev/lit-element/v2";
+import { html } from "https://cdn.eik.dev/lit-element/v2";
 var render = (world) => {
   return html\`<p>Hello \${world}!</p>\`;
 };
@@ -93,7 +92,7 @@ function firstElement(element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "./lit-element/v2";
+import { html, css } from "./lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -128,7 +127,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -141,9 +139,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -151,7 +149,7 @@ start();
 
 exports[`test/plugin.js TAP plugin() - import map maps non bare imports - should replace import statement with CDN URL > non bare imports 1`] = `
 // fixtures/modules/simple/main.js
-import {firstElement} from "https://cdn.eik.dev/something/v666";
+import { firstElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/utils/dom.js
 function replaceElement(target, element) {
@@ -160,7 +158,7 @@ function replaceElement(target, element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -195,7 +193,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -208,9 +205,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -227,7 +224,7 @@ function firstElement(element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -262,7 +259,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -275,9 +271,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -294,7 +290,7 @@ function firstElement(element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -329,7 +325,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -342,9 +337,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -352,7 +347,7 @@ start();
 
 exports[`test/plugin.js TAP plugin() - input is a filepath to a map file and an inline map - should load map and replace import statements with CDN URLs > non bare imports 1`] = `
 // fixtures/modules/simple/main.js
-import {firstElement} from "https://cdn.eik.dev/something/v666";
+import { firstElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/utils/dom.js
 function replaceElement(target, element) {
@@ -361,7 +356,7 @@ function replaceElement(target, element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -396,7 +391,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -409,9 +403,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
@@ -428,7 +422,7 @@ function firstElement(element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import {html, css} from "https://cdn.eik.dev/lit-element/v2";
+import { html, css } from "https://cdn.eik.dev/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -463,7 +457,6 @@ var App = class {
     }, 1e3);
   }
 };
-var app_default = App;
 
 // fixtures/modules/simple/main.js
 var ready = () => {
@@ -476,9 +469,9 @@ var ready = () => {
 };
 var start = async () => {
   const el = await ready();
-  const app2 = new app_default(el);
-  app2.render();
-  app2.update();
+  const app = new App(el);
+  app.render();
+  app.update();
 };
 start();
 
