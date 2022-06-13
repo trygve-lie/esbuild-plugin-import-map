@@ -37,5 +37,9 @@
     "eslint-plugin-import": "2.26.0",
     "semantic-release": "19.0.3",
     "tap": "16.2.0"
+  },
+  "dependencies": {
+    "@import-maps/resolve": "^1.0.1",
+    "deepmerge": "^4.2.2"
   }
 }
