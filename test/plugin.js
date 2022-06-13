@@ -1,7 +1,7 @@
 import * as plugin from '../lib/plugin.js';
 import esbuild from 'esbuild';
-import path from 'path';
-import url from 'url';
+import path from 'node:path';
+import url from 'node:url';
 import tap from 'tap';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
@@ -153,30 +153,6 @@ tap.test('plugin() - import specifier is a interior package path - should replac
     const code = bufferToString(result.outputFiles);
 
     t.matchSnapshot(clean(code), 'interior package path');
-
-    plugin.clear();
-    t.end();
-});
-
-tap.test('plugin() - import map maps address to a bare importer - should throw', async (t) => {
-    await plugin.load({
-        imports: {
-            'lit-element': 'https://cdn.eik.dev/lit-element/v2',
-            'lit-html/lit-html': 'https://cdn.eik.dev/lit-html/v2',
-            'lit-html': 'https://cdn.eik.dev/lit-html/v1',
-        }
-    });
-    
-    t.rejects(esbuild.build({
-        entryPoints: [simple],
-        bundle: true,
-        format: 'esm',
-        minify: false,
-        sourcemap: false,
-        target: ['esnext'],
-        plugins: [plugin.plugin()],
-        write: false,
-    }));
 
     plugin.clear();
     t.end();
