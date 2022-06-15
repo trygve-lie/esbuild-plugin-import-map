@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-import-map",
-  "version": "3.0.0-next.1",
+  "version": "3.0.0-next.2",
   "description": "ESbuild plugin to apply import map mappings to ESM a head of time.",
   "main": "lib/plugin.js",
   "type": "module",

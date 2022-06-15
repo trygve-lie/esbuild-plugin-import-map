@@ -1,3 +1,15 @@
+# [3.0.0-next.2](https://github.com/trygve-lie/esbuild-plugin-import-map/compare/v3.0.0-next.1...v3.0.0-next.2) (2022-06-15)
+
+
+### Features
+
+* Make first argument to .load() the base URL ([789ead3](https://github.com/trygve-lie/esbuild-plugin-import-map/commit/789ead3115384ed0b7822b168a0ad073943e363b))
+
+
+### BREAKING CHANGES
+
+* The first argument to the `.load()` method now takes a base URL which the import map parser will use when parsing.
+
 # [3.0.0-next.1](https://github.com/trygve-lie/esbuild-plugin-import-map/compare/v2.1.0...v3.0.0-next.1) (2022-06-13)
 
 
