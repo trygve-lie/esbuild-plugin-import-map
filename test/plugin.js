@@ -273,3 +273,36 @@ tap.test('plugin() - input is a filepath to a faulty map file - should throw', a
     t.rejects(plugin.load(err), /Unexpected end of JSON input/);
     t.end();
 });
+
+tap.test('plugin() - unmappet (unresolved) paths passed to next registered plugin', async (t) => {
+    await plugin.load(map);
+
+    let passedToNext = false;
+    /**
+     * @returns {import('esbuild').Plugin}
+     */
+    let otherPlugin = () => {
+        return {
+            name: "other-plugin",
+            setup(build) {
+                build.onResolve({ filter: /.*?/ }, () => {
+                    passedToNext = true;
+                    return null;
+                });
+            },
+        };
+    };
+
+    await esbuild.build({
+        entryPoints: [simple],
+        bundle: true,
+        format: 'esm',
+        minify: false,
+        sourcemap: false,
+        target: ['esnext'],
+        plugins: [plugin.plugin(), otherPlugin()],
+        write: false,
+    });
+
+    tap.ok(passedToNext);
+});
