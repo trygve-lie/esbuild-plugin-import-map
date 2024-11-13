@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-import-map",
-  "version": "0.0.1",
+  "version": "3.0.0-next.2",
   "description": "ESbuild plugin to apply import map mappings to ESM a head of time.",
   "main": "lib/plugin.js",
   "type": "module",
@@ -37,5 +37,9 @@
     "eslint-plugin-import": "2.31.0",
     "semantic-release": "19.0.5",
     "tap": "16.2.0"
+  },
+  "dependencies": {
+    "@import-maps/resolve": "^1.0.1",
+    "deepmerge": "^4.2.2"
   }
 }
