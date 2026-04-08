@@ -9,11 +9,8 @@ exports[`test/plugin.js TAP plugin() - array of import map maps - should replace
 // fixtures/modules/simple/main.js
 import { firstElement } from "https://cdn.eik.dev/something/v666";
 
-// fixtures/modules/simple/utils/dom.js
-function replaceElement(target, element) {
-  target.replaceWith(element);
-  return element;
-}
+// fixtures/modules/simple/app/app.js
+import { replaceElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/app/views.js
 import { html, css } from "https://cdn.eik.dev/lit-element/v2";
@@ -92,7 +89,7 @@ function firstElement(element) {
 }
 
 // fixtures/modules/simple/app/views.js
-import { html, css } from "./lit-element/v2";
+import { html, css } from "http://localhost/lit-element/v2";
 function view(items) {
   return html\`<p>Hello \${items[0]}!</p>\`;
 }
@@ -151,11 +148,8 @@ exports[`test/plugin.js TAP plugin() - import map maps non bare imports - should
 // fixtures/modules/simple/main.js
 import { firstElement } from "https://cdn.eik.dev/something/v666";
 
-// fixtures/modules/simple/utils/dom.js
-function replaceElement(target, element) {
-  target.replaceWith(element);
-  return element;
-}
+// fixtures/modules/simple/app/app.js
+import { replaceElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/app/views.js
 import { html, css } from "https://cdn.eik.dev/lit-element/v2";
@@ -349,11 +343,8 @@ exports[`test/plugin.js TAP plugin() - input is a filepath to a map file and an 
 // fixtures/modules/simple/main.js
 import { firstElement } from "https://cdn.eik.dev/something/v666";
 
-// fixtures/modules/simple/utils/dom.js
-function replaceElement(target, element) {
-  target.replaceWith(element);
-  return element;
-}
+// fixtures/modules/simple/app/app.js
+import { replaceElement } from "https://cdn.eik.dev/something/v666";
 
 // fixtures/modules/simple/app/views.js
 import { html, css } from "https://cdn.eik.dev/lit-element/v2";
