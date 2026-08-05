@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/trygve-lie/esbuild-plugin-import-map#readme",
   "devDependencies": {
-    "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/git": "10.0.1",
+    "@semantic-release/changelog": "7.0.0",
+    "@semantic-release/git": "11.0.1",
     "esbuild": "0.28.0",
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
-    "semantic-release": "19.0.5",
+    "semantic-release": "25.0.9",
     "tap": "16.2.0"
   }
 }
